@@ -1,0 +1,17 @@
+version: '2.1'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/var/code/news_extractor
+    networks:
+      - shared
+      - default
+networks:
+  shared:
+    external: true
